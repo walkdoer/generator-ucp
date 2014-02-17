@@ -1,0 +1,28 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "<%=version%>",
+  "ignore": [
+    "**/.*",
+    "build",
+    "test",
+    "*.md",
+    "Gruntfile.js",
+    "package.json",
+    "bower.json"
+  ],
+  "dependencies": {
+    <%if (needUnderscore) {%>
+    "underscore": "latest",
+    <%}%>
+    "zepto": "latest"
+  },
+  "devDependencies": {
+    <%if (needQunit) {%>
+    "qunit": "~1.12.0"
+    <%}%>
+  },
+  "keywords": [
+    "javascript"
+  ]
+}
+
