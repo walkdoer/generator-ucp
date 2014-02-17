@@ -68,6 +68,7 @@ var UcpGenerator = yeoman.generators.Base.extend({
 
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
+    this.template('Gruntfile.js', 'Gruntfile.js');
   },
   runtime: function () {
     this.copy('bowerrc', '.bowerrc');
