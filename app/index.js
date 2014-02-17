@@ -5,7 +5,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
 
-var ElfGenerator = yeoman.generators.Base.extend({
+var UcpGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
 
@@ -23,7 +23,7 @@ var ElfGenerator = yeoman.generators.Base.extend({
     console.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('You\'re using the fantastic Elf generator.'));
+    console.log(chalk.magenta('You\'re using the fantastic Ucp generator.'));
 
     var prompts = [{
       name: 'projectName',
@@ -79,4 +79,4 @@ var ElfGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = ElfGenerator;
+module.exports = UcpGenerator;
