@@ -82,6 +82,30 @@ module.exports = function(grunt) {
                 dest: 'compiled'
             }
         },
+        pack: {
+            css: {
+                type: 'css',
+                src: [
+                    '<%= meta.banner %>',
+                    'src/css/main.css',
+                ],
+                dest: 'dist/style.min.css'
+            },
+            app: {
+                type: 'js',
+                options: {
+                    base: '<%= cmd.all.dest %>'
+                },
+                src: [
+                    '<%= meta.banner %>',
+                    '<%= cmd.all.dest %>/*.js'
+                ],
+                ignore: [
+                    /*这里输入需要排除的文件*/
+                ],
+                dest: 'dist/app.min.js'
+            }
+        },
         jshint: {
             all: {
                 src: [
