@@ -50,6 +50,19 @@ module.exports = function(grunt) {
             scripts: {
                 files: ['src/**/*.js'],
                 tasks: ['build']
+            },
+            tpl: {
+                files: ['src/tpl/**/*.tpl'],
+                tasks: ['tpl]
+            }
+        },
+        tpl: {
+            options: {
+                base: 'src/tpl'
+            },
+            tpl: {
+                src: ['src/tpl/*.tpl'],
+                dest: 'src/js/tpl'
             }
         },
         build: {
