@@ -4,9 +4,19 @@ var fs = require('fs');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var ncp = require('ncp').ncp;
+
+//复制层级限制
+ncp.limit = 16;
 
 var copyFile = function (src, dest, root) {
   fs.createReadStream(path.join(root, src)).pipe(fs.createWriteStream(path.join(root, dest)));
+}, copyDirectory = function(src, dest, root) {
+  ncp(path.join(root, src), path.join(root, dest), function (err) {
+    if (err) {
+      console.log('There is something wrong when copy file of bower, directory:' + src);
+    }
+  });
 };
 
 var UcpGenerator = yeoman.generators.Base.extend({
@@ -23,9 +33,19 @@ var UcpGenerator = yeoman.generators.Base.extend({
     });
   },
   _injectDependencies: function () {
+    var destRoot = this.destinationRoot();
+    console.log('目标根目录:' + destRoot);
     if (this.needZepto) {
-      console.log('目标根目录:' + this.destinationRoot());
-      copyFile('vendor/zepto/zepto.min.js', 'src/libs/zepto.min.js', this.destinationRoot());
+      //同步vendor资源
+      copyFile('vendor/zepto/zepto.min.js', 'src/libs/zepto.min.js', destRoot);
+      copyFile('vendor/zepto/zepto.min.js', 'test/libs/zepto.min.js', destRoot);
+    }
+    if (this.needUnderscore) {
+      copyFile('vendor/underscore/underscore.js', 'src/libs/underscore.js', destRoot);
+      copyFile('vendor/underscore/underscore.js', 'test/libs/underscore.js', destRoot);
+    }
+    if (this.needQunit) {
+      copyDirectory('vendor/qunit', 'test/libs/qunit', destRoot);
     }
   },
   askFor: function () {
@@ -84,6 +104,9 @@ var UcpGenerator = yeoman.generators.Base.extend({
   },
   js: function () {
     this.mkdir('src/libs');
+  },
+  test: function () {
+    this.mkdir('test/libs');
   },
   runtime: function () {
     this.copy('bowerrc', '.bowerrc');
