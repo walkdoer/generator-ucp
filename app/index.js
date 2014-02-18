@@ -37,11 +37,11 @@ var UcpGenerator = yeoman.generators.Base.extend({
     console.log('目标根目录:' + destRoot);
     if (this.needZepto) {
       //同步vendor资源
-      copyFile('vendor/zepto/zepto.min.js', 'src/libs/zepto.min.js', destRoot);
+      copyFile('vendor/zepto/zepto.min.js', 'src/js/libs/zepto.min.js', destRoot);
       copyFile('vendor/zepto/zepto.min.js', 'test/libs/zepto.min.js', destRoot);
     }
     if (this.needUnderscore) {
-      copyFile('vendor/underscore/underscore.js', 'src/libs/underscore.js', destRoot);
+      copyFile('vendor/underscore/underscore.js', 'src/js/libs/underscore.js', destRoot);
       copyFile('vendor/underscore/underscore.js', 'test/libs/underscore.js', destRoot);
     }
     if (this.needQunit) {
@@ -105,7 +105,12 @@ var UcpGenerator = yeoman.generators.Base.extend({
     this.template('Gruntfile.js', 'Gruntfile.js');
   },
   js: function () {
-    this.mkdir('src/libs');
+    this.mkdir('src/js/libs');
+    this.directory('../js/core', 'src/js/core');
+  },
+  css: function () {
+    this.mkdir('src/css');
+    this.template('../css/main.css', 'src/css/main.css');
   },
   test: function () {
     this.mkdir('test/libs');

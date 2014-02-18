@@ -1,0 +1,7 @@
+/*
+ * @author ucplus
+ * @create  <%= (new Date).toISOString().split('T')[0] %>
+ * @version <%= pkg.version %>
+ */
+
+/* Where magic happen!*/
