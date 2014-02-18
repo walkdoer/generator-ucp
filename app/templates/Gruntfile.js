@@ -1,3 +1,4 @@
+// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 module.exports = function(grunt) {
     'use strict';
     function readOptionalJSON( filepath ) {
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
                 // the files to concatenate
                 src: ['src/**/*.js'],
                 // the location of the resulting JS file
-                dest: 'dist/<%= pkg.name %>.js'
+                dest: 'dist/<%%= pkg.name %>.js'
             }
         },
         bowercopy: {
@@ -86,19 +87,17 @@ module.exports = function(grunt) {
             css: {
                 type: 'css',
                 src: [
-                    '<%= meta.banner %>',
-                    'src/css/main.css',
+                    'src/css/main.css'
                 ],
                 dest: 'dist/style.min.css'
             },
             app: {
                 type: 'js',
                 options: {
-                    base: '<%= cmd.all.dest %>'
+                    base: 'compiled'
                 },
                 src: [
-                    '<%= meta.banner %>',
-                    '<%= cmd.all.dest %>/*.js'
+                    'compiled/*.js'
                 ],
                 ignore: [
                     /*这里输入需要排除的文件*/

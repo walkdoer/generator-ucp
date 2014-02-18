@@ -97,7 +97,9 @@ var UcpGenerator = yeoman.generators.Base.extend({
     this.mkdir('dist');
     this.mkdir('docs');
     this.mkdir('test');
-
+    this.mkdir('build/tasks');
+    console.log(this.directory.toLocaleString());
+    this.directory('../tasks', 'build/tasks');
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
     this.template('Gruntfile.js', 'Gruntfile.js');
