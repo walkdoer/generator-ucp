@@ -11,15 +11,11 @@
     "bower.json"
   ],
   "dependencies": {
-    <%if (needUnderscore) {%>
-    "underscore": "latest",
-    <%}%>
+    <% if (needUnderscore) { %>"underscore": "latest",<% } %>
     "zepto": "latest"
   },
   "devDependencies": {
-    <%if (needQunit) {%>
-    "qunit": "~1.12.0"
-    <%}%>
+    <% if (needQunit) {%>"qunit": "~1.12.0"<% } %>
   },
   "keywords": [
     "javascript"

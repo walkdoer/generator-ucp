@@ -1,21 +1,33 @@
 'use strict';
 var util = require('util');
+var fs = require('fs');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 
+var copyFile = function (src, dest, root) {
+  fs.createReadStream(path.join(root, src)).pipe(fs.createWriteStream(path.join(root, dest)));
+};
 
 var UcpGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
-
     this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.npmInstall();
-      }
+      this.installDependencies({
+        skipInstall: this.options['skip-install'],
+        callback: this._injectDependencies.bind(this)
+      });
+      // if (!this.options['skip-install']) {
+      //   this.npmInstall();
+      // }
     });
   },
-
+  _injectDependencies: function () {
+    if (this.needZepto) {
+      console.log('目标根目录:' + this.destinationRoot());
+      copyFile('vendor/zepto/zepto.min.js', 'src/libs/zepto.min.js', this.destinationRoot());
+    }
+  },
   askFor: function () {
     var done = this.async();
 
@@ -70,6 +82,9 @@ var UcpGenerator = yeoman.generators.Base.extend({
     this.template('_bower.json', 'bower.json');
     this.template('Gruntfile.js', 'Gruntfile.js');
   },
+  js: function () {
+    this.mkdir('src/libs');
+  },
   runtime: function () {
     this.copy('bowerrc', '.bowerrc');
     this.copy('gitignore', '.gitignore');
@@ -79,5 +94,4 @@ var UcpGenerator = yeoman.generators.Base.extend({
     this.copy('jshintrc', '.jshintrc');
   }
 });
-
 module.exports = UcpGenerator;
