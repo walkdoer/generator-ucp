@@ -70,6 +70,18 @@ module.exports = function(grunt) {
                 dest: 'dist/com.js'
             }
         },
+        cmd: {
+            options: {
+                base: 'src/js/',
+                shim: {}
+            },
+            all: {
+                src: [
+                    'src/js/**/*.js'
+                ],
+                dest: 'compiled'
+            }
+        },
         jshint: {
             all: {
                 src: [
