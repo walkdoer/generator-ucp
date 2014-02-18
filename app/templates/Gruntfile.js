@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         } catch ( e ) {}
         return data;
     }
-    var srcHintOptions = readOptionalJSON( 'src/.jshintrc');
+    var srcHintOptions = readOptionalJSON( '.jshintrc');
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         concat: {
