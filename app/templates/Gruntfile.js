@@ -54,7 +54,7 @@ module.exports = function(grunt) {
             },
             tpl: {
                 files: ['src/tpl/**/*.tpl'],
-                tasks: ['tpl]
+                tasks: ['tpl']
             }
         },
         tpl: {

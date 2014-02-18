@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
     var path = require('path'),
         ast = require('cmd-util').ast,
-        cmd = require('../lib/cmd'),
+        cmd = require('../libs/cmd'),
         keys = Object.keys;
 
     var RELATIVE_RE = /^\.{1,2}\//,

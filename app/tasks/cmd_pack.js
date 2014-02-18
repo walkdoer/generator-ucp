@@ -9,9 +9,9 @@ module.exports = function (grunt) {
         DESCRIPTION = 'compress css/js files and pack together';
 
     var path = require('path'),
-        cssmin = require('../lib/cssmin').cssmin,
-        cmd = require('../lib/cmd'),
-        util = require('../lib/util'),
+        cssmin = require('../libs/cssmin').cssmin,
+        cmd = require('../libs/cmd'),
+        util = require('../libs/util'),
         keys = Object.keys,
         BANNER_RE = /^\/\*/;
 

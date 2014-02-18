@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         DESCRIPTION = 'convert tpl files to cmd modules';
 
     var path = require('path'),
-        cmd = require('../lib/cmd'),
+        cmd = require('../libs/cmd'),
         keys = Object.keys;
 
     // preprocess template in options
