@@ -42,6 +42,11 @@ Yeoman has a heart of gold. He's a person with feelings and opinions, but he's v
 If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
+## Release History
+
+* 2014-2-19 v0.1.0
+* 2014-2-20 v0.1.1 增加seajs，sever
+
 ## License
 
 MIT
