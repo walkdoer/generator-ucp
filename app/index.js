@@ -113,6 +113,7 @@ var UcpGenerator = yeoman.generators.Base.extend({
     this.mkdir('build/tasks');
     //
     this.copy('../server.js', 'build/server.js');
+    this.copy('app.js', 'app.js');
     this.directory('../libs', 'build/libs');
     this.directory('../tasks', 'build/tasks');
     this.template('_package.json', 'package.json');
