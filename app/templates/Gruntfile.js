@@ -38,7 +38,7 @@ module.exports = function (grunt) {
                 // Values are sources (prefixed with `options.srcPrefix`); One source per destination
                 // e.g. 'bower_components/chai/lib/chai.js' will be copied to 'test/js/libs/chai.js'
                 files: {
-                    <% if(needZepto) { %>'src/libs/zepto.js': 'zepto/zepto.js',<% } %>
+                    <% if(needZepto) { %>'src/libs/zepto.min.js': 'zepto/zepto.min.js',<% } %>
                     <% if (needUnderscore) { %>'src/libs/underscore.js': 'underscore/underscore.js'<% } %>
                 }
             },
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'qunit': 'qunit/qunit',
-                    'zepto.js': 'zepto/zepto.js',
+                    'zepto.min.js': 'zepto/zepto.min.js',
                     'underscore.js': 'underscore/underscore.js'
                 }
             }
@@ -127,6 +127,13 @@ module.exports = function (grunt) {
             //     src: 'dist/com.js',
             //     options: srcHintOptions
             // }
+        },
+        server: {
+            publicDir: '../src',
+            staticMapping: {
+                port: 5001,
+                debug: true
+            }
         }
     });
     grunt.loadTasks('build/tasks');
@@ -141,9 +148,9 @@ module.exports = function (grunt) {
     //build project
     grunt.registerTask('build', ['clean', 'cmd', 'pack']);
     //use this task when under developing
-    grunt.registerTask('dev', ['watch']);
+    grunt.registerTask('dev', ['watch', 'server']);
     //test
     grunt.registerTask('test', ['jshint']);
     //default task, when you run command 'grunt'
-    grunt.registerTask('default', ['bower', 'build', 'dev']);
+    grunt.registerTask('default', ['bower', 'build', 'dev', 'server']);
 };
