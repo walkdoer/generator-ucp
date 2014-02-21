@@ -131,7 +131,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    //bower the denpendencies
     grunt.registerTask('bower', 'bowercopy');
-    grunt.registerTask('dev', ['build', 'jshint', 'watch']);
+    //build project
+    grunt.registerTask('build', ['cmd', 'pack']);
+    //use this task when under developing
+    grunt.registerTask('dev', ['watch']);
+    //test
+    grunt.registerTask('test', ['jshint']);
+    //default task, when you run command 'grunt'
     grunt.registerTask('default', ['bower', 'build']);
 };
