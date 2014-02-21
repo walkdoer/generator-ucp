@@ -99,11 +99,20 @@ var UcpGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     this.mkdir('src');
+    //put the file relate to build project
     this.mkdir('build');
+    //product file
     this.mkdir('dist');
+    //document
     this.mkdir('docs');
+    //test
     this.mkdir('test');
+    //html template
+    this.mkdir('src/tpl');
+    //grunt task
     this.mkdir('build/tasks');
+    //
+    this.copy('../server.js', 'build/server.js');
     this.directory('../libs', 'build/libs');
     this.directory('../tasks', 'build/tasks');
     this.template('_package.json', 'package.json');

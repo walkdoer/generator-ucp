@@ -55,7 +55,7 @@ module.exports = function (grunt) {
     }
 
     // preprocess template in options
-    // default template delimiters are <% %>
+    // default template delimiters are 
     function processOptions(opt) {
         keys(opt).forEach(function (key) {
             var value = opt[key];

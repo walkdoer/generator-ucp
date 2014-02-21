@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         keys = Object.keys;
 
     // preprocess template in options
-    // default template delimiters are <% %>
+    // default template delimiters are 
     function processOptions(opt) {
         keys(opt).forEach(function (key) {
             var value = opt[key];
