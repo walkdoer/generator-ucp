@@ -1,4 +1,4 @@
-// Generated on <%= (new Date(.toISOString((.split('T'([0] %> using <%= pkg.name %> <%= pkg.version %>
+// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 module.exports = function (grunt) {
     'use strict';
     function readOptionalJSON(filepath) {
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
             css: {
                 type: 'css',
                 src: [
-                    '<%= meta.banner %>',
+                    '<%%= meta.banner %>',
                     'src/css/main.css'
                 ],
                 dest: 'dist/style.min.<%%= pkg.version %>.css'
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
                     base: 'compiled'
                 },
                 src: [
-                    '<%= meta.banner %>',
+                    '<%%= meta.banner %>',
                     'compiled/*.js'
                 ],
                 ignore: [
