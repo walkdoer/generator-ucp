@@ -145,5 +145,5 @@ module.exports = function (grunt) {
     //test
     grunt.registerTask('test', ['jshint']);
     //default task, when you run command 'grunt'
-    grunt.registerTask('default', ['bower', 'build']);
+    grunt.registerTask('default', ['bower', 'build', 'dev']);
 };
