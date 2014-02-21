@@ -1,16 +1,22 @@
-// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
-module.exports = function(grunt) {
+// Generated on <%= (new Date(.toISOString((.split('T'([0] %> using <%= pkg.name %> <%= pkg.version %>
+module.exports = function (grunt) {
     'use strict';
-    function readOptionalJSON( filepath ) {
+    function readOptionalJSON(filepath) {
         var data = {};
         try {
-            data = grunt.file.readJSON( filepath );
-        } catch ( e ) {}
+            data = grunt.file.readJSON(filepath);
+        } catch (e) {
+
+        }
         return data;
     }
-    var srcHintOptions = readOptionalJSON( '.jshintrc');
+    var srcHintOptions = readOptionalJSON('.jshintrc');
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        meta: {
+            banner: '/*! <%%= pkg.name %> - v<%%= pkg.version %> - ' +
+                '<%%= grunt.template.today("yyyy-mm-dd") %> */'
+        },
         concat: {
             options: {
                 // define a string to put between each file in the concatenated output
@@ -82,9 +88,10 @@ module.exports = function(grunt) {
             css: {
                 type: 'css',
                 src: [
+                    '<%= meta.banner %>',
                     'src/css/main.css'
                 ],
-                dest: 'dist/style.min.css'
+                dest: 'dist/style.min.<%%= pkg.version %>.css'
             },
             app: {
                 type: 'js',
@@ -92,12 +99,13 @@ module.exports = function(grunt) {
                     base: 'compiled'
                 },
                 src: [
+                    '<%= meta.banner %>',
                     'compiled/*.js'
                 ],
                 ignore: [
-                    /*这里输入需要排除的文件*/
+                    /*这里输入需要排除的js文件*/
                 ],
-                dest: 'dist/app.min.js'
+                dest: 'dist/app.min.<%%= pkg.version %>.js'
             }
         },
         jshint: {
