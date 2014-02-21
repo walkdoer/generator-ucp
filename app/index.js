@@ -79,6 +79,11 @@ var UcpGenerator = yeoman.generators.Base.extend({
       message: 'need Zepto?',
       type: 'confirm',
       default: true
+    }, {
+      name: 'needSeajs',
+      message: 'need Seajs?',
+      type: 'confirm',
+      default: true
     }];
 
     this.prompt(prompts, function (props) {
@@ -87,6 +92,7 @@ var UcpGenerator = yeoman.generators.Base.extend({
       this.needZepto = props.needZepto;
       this.needQunit = props.needQunit;
       this.needUnderscore = props.needUnderscore;
+      this.needSeajs = props.needSeajs;
       done();
     }.bind(this));
   },
@@ -106,7 +112,9 @@ var UcpGenerator = yeoman.generators.Base.extend({
   },
   js: function () {
     this.mkdir('src/js/libs');
-    this.copy('../js/seajs/sea.js', 'src/js/libs/sea.js');
+    if (this.needSeajs) {
+      this.copy('../js/seajs/sea.js', 'src/js/libs/sea.js');
+    }
     this.directory('../js/core', 'src/js/core');
   },
   css: function () {
