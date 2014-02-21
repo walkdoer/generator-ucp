@@ -66,11 +66,6 @@ module.exports = function(grunt) {
                 dest: 'src/js/tpl'
             }
         },
-        build: {
-            all: {
-                dest: 'dist/com.js'
-            }
-        },
         cmd: {
             options: {
                 base: 'src/js/',
