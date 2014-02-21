@@ -108,6 +108,10 @@ module.exports = function (grunt) {
                 dest: 'dist/app.min.<%%= pkg.version %>.js'
             }
         },
+        //清除中间结果
+        clean: {
+            compiled: ['compiled']
+        },
         jshint: {
             all: {
                 src: [
@@ -131,10 +135,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bowercopy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     //bower the denpendencies
     grunt.registerTask('bower', 'bowercopy');
     //build project
-    grunt.registerTask('build', ['cmd', 'pack']);
+    grunt.registerTask('build', ['clean', 'cmd', 'pack']);
     //use this task when under developing
     grunt.registerTask('dev', ['watch']);
     //test
