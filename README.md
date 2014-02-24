@@ -44,8 +44,9 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 ## Release History
 
-* 2014-2-19 v0.1.0
+* 2014-2-20 v0.1.2 修复Server的问题
 * 2014-2-20 v0.1.1 增加seajs，sever
+* 2014-2-19 v0.1.0 搭建出基本的项目
 
 ## License
 
