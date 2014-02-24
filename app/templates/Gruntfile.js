@@ -129,11 +129,13 @@ module.exports = function (grunt) {
             // }
         },
         server: {
-            publicDir: '../src',
+            publicDir: './src',
+            tplDir: './src/tpl',
             staticMapping: {
-                port: 5001,
-                debug: true
-            }
+                '/public': './src'
+            },
+            // testPath: '/test',
+            port: 5020
         }
     });
     grunt.loadTasks('build/tasks');
