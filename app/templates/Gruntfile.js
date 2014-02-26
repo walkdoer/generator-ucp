@@ -17,18 +17,6 @@ module.exports = function (grunt) {
             banner: '/*! <%%= pkg.name %> - v<%%= pkg.version %> - ' +
                 '<%%= grunt.template.today("yyyy-mm-dd") %> */'
         },
-        concat: {
-            options: {
-                // define a string to put between each file in the concatenated output
-                separator: ';'
-            },
-            dist: {
-                // the files to concatenate
-                src: ['src/**/*.js'],
-                // the location of the resulting JS file
-                dest: 'dist/<%%= pkg.name %>.js'
-            }
-        },
         bowercopy: {
             options: {
                 clean: true
@@ -72,6 +60,7 @@ module.exports = function (grunt) {
                 dest: 'src/js/tpl'
             }
         },
+        <% if (needSeajs) {%>
         cmd: {
             options: {
                 base: 'src/js/',
@@ -108,6 +97,31 @@ module.exports = function (grunt) {
                 dest: 'dist/app.min.<%%= pkg.version %>.js'
             }
         },
+        <% } else { %>
+        concat: {
+            options: {
+                //每个文件之间的分隔符
+                separator: ';'
+            },
+            dist: {
+                // the files to concatenate
+                src: ['src/js/**/*.js'],
+                // 输出连接之后的js
+                dest: 'compiled/app.<%%= pkg.version %>.js'
+            }
+        },
+        uglify: {
+            options: {
+                banner: <%%=meta.banner%>
+            },
+            dist: {
+                files: {
+                      //concat.dist.dest为Concat任务的输出结果文件
+                     'dist/app.min.<%%= pkg.version %>.js': ['<%%=concat.dist.dest%>']
+                }
+            }
+        },
+        <% } %> // ------ END OF <% if (needSeajs) {%>
         //清除中间结果
         clean: {
             compiled: ['compiled']
@@ -148,7 +162,11 @@ module.exports = function (grunt) {
     //bower the denpendencies
     grunt.registerTask('bower', 'bowercopy');
     //build project
+    <% if (needSeajs) {%>
     grunt.registerTask('build', ['clean', 'cmd', 'pack']);
+    <% } else { %>
+    grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+    <% } %>
     //use this task when under developing
     grunt.registerTask('dev', ['watch', 'server']);
     //test
