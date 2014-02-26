@@ -126,6 +126,9 @@ var UcpGenerator = yeoman.generators.Base.extend({
     if (this.needSeajs) {
       this.copy('../js/seajs/sea.js', 'src/js/libs/sea.js');
       this.directory('../js/core', 'src/js/core');
+      this.template('app_CMD.js', 'src/js/app.js');
+    } else {
+      this.template('app_normal.js', 'src/js/app.js');
     }
   },
   css: function () {
