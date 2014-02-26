@@ -167,7 +167,7 @@ module.exports = function (grunt) {
     <% if (needSeajs) {%>
     grunt.registerTask('build', ['clean', 'cmd', 'pack']);
     <% } else { %>
-    grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['clean', 'concat', 'uglify']);
     <% } %>
     //use this task when under developing
     grunt.registerTask('dev', ['watch', 'server']);
