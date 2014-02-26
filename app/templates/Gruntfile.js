@@ -104,9 +104,13 @@ module.exports = function (grunt) {
                 separator: ';'
             },
             dist: {
-                // the files to concatenate
-                src: ['src/js/**/*.js'],
-                // 输出连接之后的js
+                //需要拼接的文件，按照src数组的顺序进行拼接
+                src: [
+                    'src/js/libs/zepto.min.js',
+                    <% if(needUnderscore) { %>'src/js/libs/underscore.js',<% } %>
+                    'src/js/**/*.js'
+                ],
+                // 输出拼接之后的js
                 dest: 'compiled/app.<%%= pkg.version %>.js'
             }
         },
