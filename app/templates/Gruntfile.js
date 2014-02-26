@@ -112,7 +112,7 @@ module.exports = function (grunt) {
         },
         uglify: {
             options: {
-                banner: <%%=meta.banner%>
+                banner: '<%%=meta.banner%>'
             },
             dist: {
                 files: {
@@ -121,7 +121,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        <% } %> // ------ END OF <% if (needSeajs) {%>
+        <% } %> // -----
         //清除中间结果
         clean: {
             compiled: ['compiled']
