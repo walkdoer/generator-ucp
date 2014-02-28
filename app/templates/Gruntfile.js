@@ -154,6 +154,23 @@ module.exports = function (grunt) {
             },
             // testPath: '/test',
             port: 5020
+        },
+        htmlbuild: {
+            dist: {
+                src: './src/tpl/index.html',
+                dest: './dist/',
+                options: {
+                    //beautify: true,
+                    //prefix: '//some-cdn',
+                    //relative: true,
+                    scripts: {
+                        main: './dist/*.js'
+                    },
+                    styles: {
+                        main: './dist/*.css'
+                    }
+                }
+            }
         }
     });
     grunt.loadTasks('build/tasks');
@@ -165,6 +182,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-html-build');
     //bower the denpendencies
     grunt.registerTask('bower', 'bowercopy');
     //build project
