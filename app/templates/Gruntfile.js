@@ -114,6 +114,12 @@ module.exports = function (grunt) {
                 dest: 'compiled/app.<%%= pkg.version %>.js'
             }
         },
+        cssmin: {
+          css:{
+              src: 'compiled/app.<%= pkg.version %>.css',
+              dest: 'dist/app.min.<%= pkg.version %>.css'
+          }
+        },
         uglify: {
             options: {
                 banner: '<%%=meta.banner%>'
@@ -175,14 +181,22 @@ module.exports = function (grunt) {
     });
     grunt.loadTasks('build/tasks');
 
-
+    //同步bower库的文件到需要的文件夹
     grunt.loadNpmTasks('grunt-bowercopy');
+    //jsHint
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    //监听文件
     grunt.loadNpmTasks('grunt-contrib-watch');
+    //清除文件
     grunt.loadNpmTasks('grunt-contrib-clean');
+    //连接文件
     grunt.loadNpmTasks('grunt-contrib-concat');
+    //压缩js文件
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    //构建html文件
     grunt.loadNpmTasks('grunt-html-build');
+    //压缩css文件
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     //bower the denpendencies
     grunt.registerTask('bower', 'bowercopy');
     //build project
