@@ -185,7 +185,7 @@ var server = {
         //注入 log.js 路由，输出 log.js 文件
         app.get('/log/log.js', function(req, res){
             res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
-            fs.readFile('./libs/log.js', function (err, data) {
+            fs.readFile('./build/libs/log.js', function (err, data) {
                 if (err) throw err;
                 res.end(data);
             });
