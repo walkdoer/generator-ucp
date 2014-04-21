@@ -189,14 +189,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     //清除文件
     grunt.loadNpmTasks('grunt-contrib-clean');
+    <% if (!needSeajs) { %>
     //连接文件
     grunt.loadNpmTasks('grunt-contrib-concat');
     //压缩js文件
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    //构建html文件
-    grunt.loadNpmTasks('grunt-html-build');
     //压缩css文件
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    <% } %>
+    //构建html文件
+    grunt.loadNpmTasks('grunt-html-build');
     //bower the denpendencies
     grunt.registerTask('bower', 'bowercopy');
     //build project
