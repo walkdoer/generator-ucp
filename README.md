@@ -44,6 +44,7 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 ## Release History
 
+* 2014-4-21 v0.1.4 修复路径引用错误
 * 2014-2-27 v0.1.3 添加JS入口文件，修复部分问题，提供非seajs项目的打包功能
 * 2014-2-24 v0.1.2 修复Server的问题
 * 2014-2-20 v0.1.1 增加seajs，sever
