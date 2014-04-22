@@ -10,13 +10,11 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.0",
-    "grunt-contrib-jshint": ">=0.1.0",
-    <% if (needQunit) { %>"grunt-contrib-qunit": ">=0.1.0",<% } %>
-    <% if (!needSeajs) { %>
+    "grunt-contrib-jshint": ">=0.1.0",<% if (needQunit) { %>
+    "grunt-contrib-qunit": ">=0.1.0",<% } %> <% if (!needSeajs) { %>
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-cssmin": "~0.8.0",
-    <% } %>
+    "grunt-contrib-cssmin": "~0.8.0",<% } %>
     "grunt-bowercopy": ">=0.4.1",
     "grunt-html-build": ">=0.3.1",
     "grunt-contrib-watch": "~0.5.3",
