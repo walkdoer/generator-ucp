@@ -11,9 +11,33 @@
     </head>
     <body>
     Successful start server of <%= projectName %> version: <%= version%>
+    <% if (needSeajs) { %>
+    <!-- build:script main -->
+    <script src="../public/js/seajs/sea-debug.js"></script>
+    <!-- /build -->
+    <script type="text/javascript">
+        seajs.config({
+            alias: {
+                <% if (needZepto) { %>'zepto': 'libs/zepto.min.js'<% } %>
+            }
+        });
+        seajs.use('bookmark/app', function (app) {
+            app.init({
+                api: {
+                    'bookmark-index': 'getlist'
+                },
+                index: {
+                    listSize: 10
+                }
+            });
+        });
+    </script>
+    <% } else { %>
+
     <!-- build:script main -->
     <script src="./public/js/libs/zepto.min.js"></script>
     <script src="./public/js/app.js"></script>
     <!-- /build -->
+    <% } %>
     </body>
 </html>
