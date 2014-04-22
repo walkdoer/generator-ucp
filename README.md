@@ -44,12 +44,13 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 ## Release History
 
-* 2014-4-21 v0.1.5 修复html-build依赖缺失，修复Gruntfile.js错误
-* 2014-4-21 v0.1.4 修复路径引用错误
-* 2014-2-27 v0.1.3 添加JS入口文件，修复部分问题，提供非seajs项目的打包功能
-* 2014-2-24 v0.1.2 修复Server的问题
-* 2014-2-20 v0.1.1 增加seajs，sever
-* 2014-2-19 v0.1.0 搭建出基本的项目
+* 2014-04-22 v0.1.6 修复app.js模板错误，优化index.html模板,增加zepto shim
+* 2014-04-21 v0.1.5 修复html-build依赖缺失，修复Gruntfile.js错误
+* 2014-04-21 v0.1.4 修复路径引用错误
+* 2014-02-27 v0.1.3 添加JS入口文件，修复部分问题，提供非seajs项目的打包功能
+* 2014-02-24 v0.1.2 修复Server的问题
+* 2014-02-20 v0.1.1 增加seajs，sever
+* 2014-02-19 v0.1.0 搭建出基本的项目
 
 ## License
 
