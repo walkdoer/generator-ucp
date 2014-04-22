@@ -64,7 +64,9 @@ module.exports = function (grunt) {
         cmd: {
             options: {
                 base: 'src/js/',
-                shim: {}
+                shim: {
+                    <% if (needZepto) { %> 'zepto': 'src/js/libs/zepto.min.js' <% } %>
+                }
             },
             all: {
                 src: [
