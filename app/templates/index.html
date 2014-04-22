@@ -21,15 +21,8 @@
                 <% if (needZepto) { %>'zepto': 'libs/zepto.min.js'<% } %>
             }
         });
-        seajs.use('bookmark/app', function (app) {
-            app.init({
-                api: {
-                    'bookmark-index': 'getlist'
-                },
-                index: {
-                    listSize: 10
-                }
-            });
+        seajs.use('app', function (app) {
+            //todo
         });
     </script>
     <% } else { %>
