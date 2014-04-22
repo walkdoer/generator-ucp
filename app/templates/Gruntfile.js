@@ -180,6 +180,14 @@ module.exports = function (grunt) {
                 }
             }
         }
+        commander: {
+            /* 定义要执行的shell语句
+               例如
+            cmd1: {
+                command: 'cp dist/example.js other/folder/example.js'
+            },
+            */
+        },
     });
     grunt.loadTasks('build/tasks');
 
