@@ -1,9 +1,9 @@
 /**
- * <%= pkg.name%>
+ * <%= projectName %>
  * src/js/app.js
- * @author <%= pkg.author.name%>
- * @version <%= pkg.version%>
+ * @version <%= version %>
  */
 (function (global, undefined){
+    'use strict';
     //Your Code
 })(window);
