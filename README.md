@@ -43,7 +43,7 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 
 ## Release History
-
+* 2014-04-24 v0.1.8 修复Gruntfile问题，增加reset.css
 * 2014-04-22 v0.1.7 添加commander任务，修复bug若干
 * 2014-04-22 v0.1.6 修复app.js模板错误，优化index.html模板,增加zepto shim
 * 2014-04-21 v0.1.5 修复html-build依赖缺失，修复Gruntfile.js错误
