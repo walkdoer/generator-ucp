@@ -135,6 +135,7 @@ var UcpGenerator = yeoman.generators.Base.extend({
   css: function () {
     this.mkdir('src/css');
     this.template('../css/main.css', 'src/css/main.css');
+    this.copy('../css/reset.css', 'src/css/reset.css');
   },
   test: function () {
     this.mkdir('test/libs');

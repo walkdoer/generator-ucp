@@ -80,7 +80,7 @@ module.exports = function (grunt) {
                 type: 'css',
                 src: [
                     '<%%= meta.banner %>',
-                    'src/css/main.css'
+                    'src/css/**/*.css'
                 ],
                 dest: 'dist/style.min.<%%= pkg.version %>.css'
             },
@@ -179,7 +179,7 @@ module.exports = function (grunt) {
                     }
                 }
             }
-        }
+        },
         commander: {
             /* 定义要执行的shell语句
                例如
