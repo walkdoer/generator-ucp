@@ -22,9 +22,6 @@ module.exports = function (grunt) {
                 clean: false
             },
             src: {
-                // Keys are destinations (prefixed with `options.destPrefix`)
-                // Values are sources (prefixed with `options.srcPrefix`); One source per destination
-                // e.g. 'bower_components/chai/lib/chai.js' will be copied to 'test/js/libs/chai.js'
                 files: {
                     <% if(needZepto) { %>'src/libs/zepto.min.js': 'zepto/zepto.min.js',<% } %>
                     <% if (needUnderscore) { %>'src/libs/underscore.js': 'underscore/underscore.js'<% } %>
@@ -213,7 +210,7 @@ module.exports = function (grunt) {
     grunt.registerTask('bower', 'bowercopy');
     //build project
     <% if (needSeajs) {%>
-    grunt.registerTask('build', ['clean', 'cmd', 'pack']);
+    grunt.registerTask('build', ['clean', 'cmd', 'pack', 'htmlbuild']);
     <% } else { %>
     grunt.registerTask('build', ['clean', 'concat', 'cssmin', 'uglify', 'htmlbuild']);
     <% } %>
