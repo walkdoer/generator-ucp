@@ -39,6 +39,8 @@ server.pid
 
 #Folder#
 node_modules
+compiled
+private
 vendor
 *.pid
 *.swp

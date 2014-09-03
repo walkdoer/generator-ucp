@@ -19,7 +19,7 @@ module.exports = function (grunt) {
         },
         bowercopy: {
             options: {
-                clean: true
+                clean: false
             },
             src: {
                 // Keys are destinations (prefixed with `options.destPrefix`)
@@ -36,8 +36,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'qunit': 'qunit/qunit',
-                    'zepto.min.js': 'zepto/zepto.min.js',
-                    'underscore.js': 'underscore/underscore.js'
+                    <% if(needZepto) { %>'zepto.min.js': 'zepto/zepto.min.js',<% } %>
+                    <% if (needUnderscore) { %>'underscore.js': 'underscore/underscore.js' <% } %>
                 }
             }
         },
