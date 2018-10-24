@@ -1,4 +1,4 @@
-# generator-ucp [![Build Status](https://secure.travis-ci.org/zhangmhao/generator-ucp.png?branch=master)](https://travis-ci.org/zhangmhao/generator-ucp)
+ # generator-ucp [![Build Status](https://secure.travis-ci.org/zhangmhao/generator-ucp.png?branch=master)](https://travis-ci.org/zhangmhao/generator-ucp)
 
 > [Yeoman](http://yeoman.io) generator
 
